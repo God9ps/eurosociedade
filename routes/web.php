@@ -12,7 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $panels = collect([
+        'type' => 'success',
+        'title' => 'Titulo dinamico',
+        'footer' => 'footer dinamico',
+        'body' => 'lorem ipsum sit dolor amet',
+    ]);
+
+    return view('welcome', compact('panels'));
 });
 
 
@@ -20,6 +27,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('jogadores/{players}', function($players) {
+                                Route::get('jogadores/{player}', function($players) {
    return view('pages.players', compact('players'));
 })->name('jogadores.index');
