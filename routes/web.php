@@ -12,6 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('main');
+    return view('welcome');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('jogadores/{players}', function($players) {
+   return view('pages.players', compact('players'));
+})->name('jogadores.index');

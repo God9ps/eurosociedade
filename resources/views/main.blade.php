@@ -34,15 +34,25 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">About</a>
+                    <a href="{{ url('/home') }}>Inicio</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                    <a href="#">Jogadores</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="#">Sorteios</a>
                 </li>
             </ul>
+            @if (Route::has('login'))
+                <div class="nav navbar-nav pull-right">
+                    @if (Auth::check())
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
+                    @endif
+                </div>
+            @endif
         </div>
         <!-- /.navbar-collapse -->
     </div>
