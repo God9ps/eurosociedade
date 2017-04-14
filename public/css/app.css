@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);a {
     color: blue;
+}
+
+.glyphicon{
+    font-family: "Raleway", sans-serif;
 }@charset "UTF-8";
 
 

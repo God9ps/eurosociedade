@@ -27,6 +27,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-                                Route::get('jogadores/{player}', function($players) {
+Route::get('jogadores/{player}', function($players) {
    return view('pages.players', compact('players'));
 })->name('jogadores.index');
+
+
+Route::get('/newSociety', function() {
+    return view('pages.society.newSociety');
+});
+
+
+

@@ -22,9 +22,17 @@
 </head>
 <body>
     <div id="app">
-        @include('layouts.navbar')
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+
+                @include('layouts.navbar')
+
+            </div>
+        </nav>
 
         @yield('content')
+
+
     </div>
 
     <!-- Scripts -->
