@@ -26,10 +26,10 @@
                 @if (Auth::user())
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-compressed"> Sociedades <i class="caret"></i></span>
+                            <span class="glyphicon glyphicon-compressed"></span> Sociedades <i class="caret"></i>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/newSociety"><span class="glyphicon glyphicon-plus"> Criar Sociedade</span></a></li>
+                            <li><a href="/newSociety"><span class="glyphicon glyphicon-plus"></span> Criar Sociedade</a></li>
                         </ul>
                     </li>
                 @endif

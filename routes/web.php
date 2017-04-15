@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
+
 Route::get('/', function () {
     $panels = collect([
         'type' => 'success',
@@ -32,9 +35,7 @@ Route::get('jogadores/{player}', function($players) {
 })->name('jogadores.index');
 
 
-Route::get('/newSociety', function() {
-    return view('pages.society.newSociety');
-});
+Route::get('/newSociety','SocietyController@getTypes')->middleware('auth');
 
-
+Route::post('/society/create','SocietyController@store')->middleware('auth');;
 
