@@ -18,7 +18,7 @@
             'type', 'title', 'footer'
         ],
         mounted() {
-            console.log("Painel montado: " + this.title);
+
         }
     }
 </script>

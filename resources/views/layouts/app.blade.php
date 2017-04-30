@@ -12,8 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <!-- Scripts -->
+
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
@@ -22,20 +22,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-
-                @include('layouts.navbar')
-
-            </div>
-        </nav>
-
+        @include('layouts.navbar')
         @yield('content')
-
-
     </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @include('sweet::alert')
+    @yield('scripts')
 </body>
 </html>

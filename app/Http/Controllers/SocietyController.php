@@ -1,28 +1,51 @@
 <?php
 
 namespace euromilhoes\Http\Controllers;
+
+use Alert;
+use Feeds;
 use euromilhoes\Society;
-use euromilhoes\Type;
-use Illuminate\Database\Eloquent;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class SocietyController extends Controller
 {
-    public function getTypes(){
-        $types = Type::all();
-        /*dd($types);*/
-        /*return View::make('pages.society.newSociety')->with($types);*/
-        return view('pages.society.newSociety', compact('types'));
+    function __construct()
+    {
+        $this->middleware('society_admin')->only('edit');
+    }
+
+    public function getSocieties(){
+
+        // $feed = Feeds::make('https://www.jogossantacasa.pt/web/SCRss/rssFeedCartRes');
+        // $results = $feed->get_items(0, 5);
+
+        // dd($feed->get_items()[7]->get_description());
+        // dd($feed->get_items()[8]->data['child'][""]["description"][0]['data']);
+
+
+        $societies = Society::with('type', 'admin')
+            ->where('id_admin', auth()->user()->id)
+            ->paginate(6);
+
+        return view('pages.society.mySocieties', compact('societies'));
+    }
+
+    public function edit(Society $society)
+    {
+        return view('pages.society.editMySociety', compact('society'));
     }
 
     public function store(Request $request)
     {
 
         $input = $request->all();
+
         Society::create($input);
 
-        return view('welcome');
+        alert()->success('Society created succefull!!!', 'Create Society!!!')
+            ->persistent('Close');
+
+        return view('panels');
 
     }
 }

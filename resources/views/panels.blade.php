@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col col-md-4">
-                <b-panel type="panel-success"
+                <b-panel type="panel-primary"
                          title="O meu titulo success"
                          footer="O meu rodapé success"
                 >

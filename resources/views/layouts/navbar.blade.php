@@ -30,6 +30,7 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/newSociety"><span class="glyphicon glyphicon-plus"></span> Criar Sociedade</a></li>
+                            <li><a href="/mySocieties"><span class="glyphicon glyphicon-list-alt"></span> As minhas sociedades</a></li>
                         </ul>
                     </li>
                 @endif

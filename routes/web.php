@@ -11,8 +11,6 @@
 |
 */
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
 
 Route::get('/', function () {
     $panels = collect([
@@ -22,7 +20,7 @@ Route::get('/', function () {
         'body' => 'lorem ipsum sit dolor amet',
     ]);
 
-    return view('welcome', compact('panels'));
+    return view('panels', compact('panels'));
 });
 
 
@@ -30,12 +28,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('jogadores/{player}', function($players) {
-   return view('pages.players', compact('players'));
-})->name('jogadores.index');
 
+Route::get('/newSociety','TypeController@getTypes')->middleware('auth');
+Route::get('/mySocieties','SocietyController@getSocieties')->middleware('auth');
 
-Route::get('/newSociety','SocietyController@getTypes')->middleware('auth');
+Route::post('/society/nova','SocietyController@store')->middleware('auth');
 
-Route::post('/society/create','SocietyController@store')->middleware('auth');;
+Route::post('/society/nova','SocietyController@store')->middleware('auth');
 
+Route::get('society/edit/{society}', 'SocietyController@edit')->name('editar');
+
+Route::patch('society/update/{society}', function(Illuminate\Http\Request $request, euromilhoes\Society $society) {
+    $boolean = $society->update($request->all());
+
+    return $boolean ? "Sociedade alterada com sucesso!": "Sociedade não alterada. Tente mais tarde!";
+});

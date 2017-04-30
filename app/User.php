@@ -18,6 +18,8 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $guarded = ['password', 'remember_token'];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -26,7 +28,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
+
     public function societies()
     {
         return $this->hasMany(Society::class);

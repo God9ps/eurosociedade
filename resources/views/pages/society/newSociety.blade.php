@@ -4,10 +4,11 @@
 @section('content')
 
 <div class="container">
+    <h2>Criar nova sociedade</h2>
     <div class="row">
         <div class="col-md-12">
-            <form action="/society/create" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <form action="/society/nova" method="post">
+                {{ csrf_field() }}
                 <input type="hidden" id="id_admin" name="id_admin" value="{{ Auth::id() }}">
                 <div class="form-group">
                     <label for="id_tipo">Escolha o jogo : </label>

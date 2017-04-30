@@ -163,10 +163,11 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         willvincent\Feeds\FeedsServiceProvider::class,
-        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
@@ -177,6 +178,7 @@ return [
         // euromilhoes\Providers\BroadcastServiceProvider::class,
         euromilhoes\Providers\EventServiceProvider::class,
         euromilhoes\Providers\RouteServiceProvider::class,
+
 
     ],
 
