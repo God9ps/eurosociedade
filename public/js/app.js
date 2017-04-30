@@ -2403,6 +2403,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.patch('/society/update/' + this.society.id, { name: this.name }).then(function (response) {
                 _this.returnedMessage = response.data;
                 _this.printAlert('Sucesso', response.data, 'success');
+                //                        route.go('/mySocieties');
             }).catch(function (error) {
                 _this.returnedMessage = error.data;
                 _this.printAlert('Erro', error.data, 'error');

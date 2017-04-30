@@ -16,13 +16,6 @@ class SocietyController extends Controller
 
     public function getSocieties(){
 
-        // $feed = Feeds::make('https://www.jogossantacasa.pt/web/SCRss/rssFeedCartRes');
-        // $results = $feed->get_items(0, 5);
-
-        // dd($feed->get_items()[7]->get_description());
-        // dd($feed->get_items()[8]->data['child'][""]["description"][0]['data']);
-
-
         $societies = Society::with('type', 'admin')
             ->where('id_admin', auth()->user()->id)
             ->paginate(6);

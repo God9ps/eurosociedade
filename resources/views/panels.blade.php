@@ -3,6 +3,34 @@
 @section('content')
     <div class="container">
         <div class="row">
+
+            @foreach($lottery as $item)
+
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <b>{{ $item->title }}</b>
+                            <span class="badge pull-right">
+                              {{ $item->lottery->number }}
+                          </span>
+                        </div>
+                        <div class="panel-body">
+                            {{ $item->lottery->number }}
+                        </div>
+                        <div class="panel-footer" style="display: flex; flex-direction: row-reverse">
+                            {{--<a href="{{ route('editar', ['society' => $society]) }}"
+                               class="btn btn-sm btn-warning">
+                                Ver detalhe
+                            </a>--}}
+                        </div>
+                    </div>
+                </div>
+
+            @endforeach
+
+
+
+
             <div class="col col-md-4">
                 <b-panel type="panel-primary"
                          title="O meu titulo success"

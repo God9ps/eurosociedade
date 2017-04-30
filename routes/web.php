@@ -27,7 +27,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
+Route::get('/read', 'LotteryController@getLotteries');
 
 Route::get('/newSociety','TypeController@getTypes')->middleware('auth');
 Route::get('/mySocieties','SocietyController@getSocieties')->middleware('auth');

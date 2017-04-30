@@ -3,6 +3,7 @@
 namespace euromilhoes\Http\Controllers;
 
 use Illuminate\Http\Request;
+use euromilhoes\Http\Controllers\LotteryController;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         return view('panels');
     }
 }

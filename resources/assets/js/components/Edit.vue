@@ -27,6 +27,8 @@
                     .then((response) => {
                         this.returnedMessage = response.data;
                         this.printAlert('Sucesso', response.data, 'success');
+//                        route.go('/mySocieties');
+
                     })
                     .catch(error => {
                         this.returnedMessage = error.data;
