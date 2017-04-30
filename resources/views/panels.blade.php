@@ -4,57 +4,36 @@
     <div class="container">
         <div class="row">
 
-            @foreach($lottery as $item)
+            @for($i=0;$i<count($lottery);$i++)
 
                 <div class="col-md-4">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <b>{{ $item->title }}</b>
+                            <b>{{ $lottery[$i]['title'] }}</b>
                             <span class="badge pull-right">
-                              {{ $item->lottery->number }}
+                                {{ $lottery[$i]['lottery']['number'] }}
                           </span>
                         </div>
                         <div class="panel-body">
-                            {{ $item->lottery->number }}
+                            @if($lottery[$i]['id'] == 0)
+                                @for($x=0;$x<count($lottery[$i]['lottery']['key']);$x++)
+                                    <span class="center-block"><b>{{ $x+1 }}º prémio : </b>{{ $lottery[$i]['lottery']['key'][$x] }}</span>
+                                @endfor
+                            @endif
+                            <b class="pull-right">{{ $lottery[$i]['date'] }}</b>
                         </div>
                         <div class="panel-footer" style="display: flex; flex-direction: row-reverse">
-                            {{--<a href="{{ route('editar', ['society' => $society]) }}"
+
+                            <a href="{{ route('editar', ['lottery' => $lottery[$i]['id']]) }}"
                                class="btn btn-sm btn-warning">
                                 Ver detalhe
-                            </a>--}}
+                            </a>
                         </div>
                     </div>
                 </div>
 
-            @endforeach
+            @endfor
 
-
-
-
-            <div class="col col-md-4">
-                <b-panel type="panel-primary"
-                         title="O meu titulo success"
-                         footer="O meu rodapé success"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cumque cupiditate enim eos et ex fuga impedit incidunt iste iure laboriosam minima nemo, officia optio quod sint temporibus vitae voluptates?
-                </b-panel>
-            </div>
-            <div class="col col-md-4">
-                <b-panel type="panel-danger"
-                         title="O meu titulo danger"
-                         footer="O meu rodapé danger"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cumque cupiditate enim eos et ex fuga impedit incidunt iste iure laboriosam minima nemo, officia optio quod sint temporibus vitae voluptates?
-                </b-panel>
-            </div>
-            <div class="col col-md-4">
-                <b-panel type="panel-warning"
-                         title="O meu titulo warning"
-                         footer="O meu rodapé warning"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cumque cupiditate enim eos et ex fuga impedit incidunt iste iure laboriosam minima nemo, officia optio quod sint temporibus vitae voluptates?
-                </b-panel>
-            </div>
         </div>
     </div>
 @endsection
