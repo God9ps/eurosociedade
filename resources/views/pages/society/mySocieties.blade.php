@@ -8,11 +8,10 @@
     <div class="row">
 
         @foreach($societies as $society)
-
               <div class="col-md-4">
                   <div class="panel panel-primary">
                       <div class="panel-heading">
-                          <b>{{ $society->name }}</b>
+                          <b>{{ $society->type->nome }}</b>
                           <span class="badge pull-right">
                               {{ $society->type->nome }}
                           </span>

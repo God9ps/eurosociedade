@@ -35,20 +35,7 @@ Route::get('/home', 'LotteryController@getLotteries');
 
 Route::get('/newSociety','TypeController@getTypes')->middleware('auth');
 
-Route::get('/mySocieties', function () {
-    $mySocieties = new SocietyController();
-    $societies = $mySocieties->getSocieties();
-    /*dd($lottery);*/
-    /*$panels = collect([
-        'type' => 'success',
-        'title' => 'Titulo dinamico',
-        'footer' => 'footer dinamico',
-        'body' => 'lorem ipsum sit dolor amet',
-    ]);*/
-
-    return view('pages.society.mySocieties', compact('societies'));
-});
-
+Route::get('/mySocieties','SocietyController@getSocieties')->middleware('auth');
 
 Route::post('/society/nova','SocietyController@store')->middleware('auth');
 
